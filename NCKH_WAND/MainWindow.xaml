@@ -1,0 +1,66 @@
+﻿<Window x:Class="NCKH_WAND.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NCKH_WAND"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="Left">
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB6B6B6"/>
+                        <GradientStop Color="#FF091697" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <Label Background="#00000000" Name="label_com">Select Com:</Label>
+                <ComboBox Opacity="0.5" Name="combo_box_COM"/>
+                <Label>Baud</Label>
+                <ComboBox Opacity="0.5" Name="combo_box_BaudRate"></ComboBox>
+                <Label>Databits</Label>
+                <ComboBox Opacity="0.5" Name="combo_box_Databits"></ComboBox>
+                <Label>Parity</Label>
+                <ComboBox Opacity="0.5" Name="combo_box_Parity"></ComboBox>
+                <Label>Stopbit</Label>
+                <ComboBox Opacity="0.5" Name="combo_box_Stopbit"></ComboBox>
+                <Button Margin="0" Foreground="#FFFF4B4B" Name="btn_Serial_Connect" Click="btn_Serial_Connect_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF4E4EF1" Offset="0"/>
+                            <GradientStop Color="#FF1A2ACB" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background> Connect
+                </Button>
+                <Button Margin="0" Foreground="#FFFF4B4B" Name="btn_Serial_Refresh" Click="btn_Serial_Refresh_Click" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF4E4EF1" Offset="0"/>
+                            <GradientStop Color="#FF1A2ACB" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background> Refresh
+                </Button>
+                <Grid>
+                    <ProgressBar Minimum="0" Maximum="100" Height="20" Name="ProgressBar_Connection_Status"></ProgressBar>
+                    <TextBlock Name="Text_ProgressBar" Text="{Binding ElementName=ProgressBar_Connection_Status, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </Grid>
+                <TextBlock Name="aaa" Text="abc"></TextBlock>
+                <TextBlock Name="Speed"></TextBlock>
+                <TextBlock Name="Center"></TextBlock>
+            </StackPanel>
+            <Grid DockPanel.Dock="Right" Margin="5">
+                <oxy:Plot x:Name="Plot1" Title="{Binding Title}">
+                    <oxy:Plot.Series>
+                        <oxy:LineSeries ItemsSource="{Binding Points}" Color="Red"/>
+                        <oxy:LineSeries ItemsSource="{Binding Points2}" Color="Aqua"/>
+                    </oxy:Plot.Series>
+                </oxy:Plot>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
