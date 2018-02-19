@@ -16,6 +16,8 @@ namespace NCKH_WAND
         string[] Parity = {"None", "Even", "Odd"};
         string[] Stopbit = {"0", "1", "2"};
 
+        const int ReceivedBytesThreshold = 12;
+
         SerialPort _Sp = new SerialPort();
         static string _DataRead = "";
 
@@ -89,7 +91,7 @@ namespace NCKH_WAND
                     else if (Stopbit == "2") _Sp.StopBits = StopBits.Two;
 
                     _Sp.Handshake = Handshake.None;
-                    _Sp.ReceivedBytesThreshold = 12;
+                    _Sp.ReceivedBytesThreshold = ReceivedBytesThreshold;
 
                     _Sp.DataReceived += new SerialDataReceivedEventHandler(SP_Received);
                     _Sp.Open();
@@ -117,6 +119,11 @@ namespace NCKH_WAND
         public string GetData()
         {
             return _DataRead;
+        }
+
+        public void SendData(string data)
+        {
+            _Sp.Write(data);
         }
 
         public static string DataRead

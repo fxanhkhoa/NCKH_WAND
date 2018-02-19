@@ -45,6 +45,14 @@
                         </LinearGradientBrush>
                     </Button.Background> Refresh
                 </Button>
+                <Button Margin="0" Foreground="#FFFF4B4B" Name="btn_BLE_Connect" Click="btn_BLE_Connect_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF4E4EF1" Offset="0"/>
+                            <GradientStop Color="#FF1A2ACB" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background> Pair
+                </Button>
                 <Grid>
                     <ProgressBar Minimum="0" Maximum="100" Height="20" Name="ProgressBar_Connection_Status"></ProgressBar>
                     <TextBlock Name="Text_ProgressBar" Text="{Binding ElementName=ProgressBar_Connection_Status, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>

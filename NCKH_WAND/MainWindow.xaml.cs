@@ -17,6 +17,7 @@ using OxyPlot;
 using OxyPlot.Series;
 using System.ComponentModel;
 using System.Windows.Threading;
+using System.Threading;
 
 namespace NCKH_WAND
 {
@@ -93,7 +94,7 @@ namespace NCKH_WAND
                 OK = GlobalVar.Serial_Data.connect(comName, Baud, Databits, Parity, Stopbit);
                 if (OK)
                 {
-                    ProgressBar_Connection_Status.Value = 100;
+                    ProgressBar_Connection_Status.Value = 50;
 
                 }
                 else
@@ -129,6 +130,13 @@ namespace NCKH_WAND
         private void timer_Tick(object sender, EventArgs e)
         {
             Plot1.InvalidatePlot(true);
+        }
+
+        private void btn_BLE_Connect_Click(object sender, RoutedEventArgs e)
+        {
+            GlobalVar.Serial_Data.SendData("AT+COND43639BC1EA7");
+            Thread.Sleep(2000);
+            ProgressBar_Connection_Status.Value = 100;
         }
     }
 }
