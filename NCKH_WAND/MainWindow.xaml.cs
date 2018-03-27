@@ -32,6 +32,7 @@ namespace NCKH_WAND
         public MainWindow()
         {
             InitializeComponent();
+            Application.Current.ShutdownMode = ShutdownMode.OnLastWindowClose;
         }
 
         private void Serial_Add_Element()
@@ -137,6 +138,11 @@ namespace NCKH_WAND
             GlobalVar.Serial_Data.SendData("AT+COND43639BC1EA7");
             Thread.Sleep(2000);
             ProgressBar_Connection_Status.Value = 100;
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

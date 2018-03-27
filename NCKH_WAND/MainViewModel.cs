@@ -19,11 +19,11 @@ namespace NCKH_WAND
         {
             this.Title = "Example 2";
             Worker_Add_Point.DoWork += Worker_Add_Point_DoWork;
-            Worker_Add_Point.RunWorkerAsync();
+            //Worker_Add_Point.RunWorkerAsync();
 
             dispatcherTimer.Tick += dispatcherTimer_Tick;
-            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(50);
-            dispatcherTimer.Start();
+            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(500);
+            //dispatcherTimer.Start();
             //this.Points = new List<DataPoint>();
             this.Points = new List<DataPoint>
                               {

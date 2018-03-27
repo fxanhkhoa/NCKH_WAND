@@ -116,6 +116,10 @@ namespace NCKH_WAND
                     //    sendMouseDoubleClick(pos);
                     //}
                 }
+                else if (temp[11] == '#')
+                {
+                    SendMouseRightClick(pos);
+                }
             }
             catch
             {
@@ -148,7 +152,7 @@ namespace NCKH_WAND
                 win32.ClientToScreen(desktop, ref pos);
                 win32.GetCursorPos(out pos);
                 //if (speed_temp > 0)
-                    win32.SetCursorPos(pos.x, pos.y + speed_temp);
+                    win32.SetCursorPos(pos.x, pos.y + (int)(speed_temp / ratio));
                 //else
                 //    win32.SetCursorPos(pos.x, pos.y - 1);
             }
