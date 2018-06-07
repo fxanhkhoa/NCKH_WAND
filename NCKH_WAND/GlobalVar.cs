@@ -17,6 +17,7 @@ namespace NCKH_WAND
         private static int _Yaw;
         private static int _speedX;
         private static int _speedY;
+        
 
         public static Semaphore sem_data_received
         {
