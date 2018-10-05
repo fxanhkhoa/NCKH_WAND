@@ -15,7 +15,7 @@ Driver Of Wireless Presentation Device
 
 ## In project
 
-- [x] Multi Mpu9050 library
+- [x] Multi Mpu9250 library
 
 - [x] Kalman filter
 
