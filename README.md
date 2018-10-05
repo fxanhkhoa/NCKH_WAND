@@ -7,6 +7,8 @@ Driver Of Wireless Presentation Device
 
 - [![Demo Part 1](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://youtu.be/bdu2eqgzXk4)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X8A_cdO6KPk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 [Demo Part 1] (https://youtu.be/X8A_cdO6KPk)
 [Demo Part 2] (https://youtu.be/bdu2eqgzXk4)
 
